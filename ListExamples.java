@@ -3,6 +3,23 @@ import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
 
+class ListStringChecker implements StringChecker{
+
+  public boolean checkString(String s){
+    List<String> Templet = new ArrayList<>();
+    Templet.add("fun");
+    Templet.add("yes");
+    Templet.add("nice");
+  
+    for(String checkString: Templet){
+      if(checkString.equals(s)){
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
 class ListExamples {
 
   // Returns a new list that has all the elements of the input list for which

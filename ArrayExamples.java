@@ -2,21 +2,27 @@
 
 public class ArrayExamples {
 
-  // Changes the input array to be in reversed order
+  // Changes the input array to be in reversed order (FIXED)
   static void reverseInPlace(int[] arr) {
+    int[] copyArray = new int[arr.length];
+
+    for (int i = 0; i < arr.length; ++i){
+      copyArray[i] = arr[i];
+    }
+
     for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = arr[arr.length - i - 1];
+      arr[i] = copyArray[arr.length - i - 1];
     }
   }
 
   // Returns a *new* array with all the elements of the input array in reversed
-  // order
+  // order (FIXED)
   static int[] reversed(int[] arr) {
     int[] newArray = new int[arr.length];
     for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = newArray[arr.length - i - 1];
+      newArray[i] = arr[arr.length - i - 1];
     }
-    return arr;
+    return newArray;
   }
 
   // Averages the numbers in the array (takes the mean), but leaves out the
@@ -24,6 +30,7 @@ public class ArrayExamples {
   // 1 element in the array
   static double averageWithoutLowest(double[] arr) {
     if(arr.length < 2) { return 0.0; }
+    
     double lowest = arr[0];
     for(double num: arr) {
       if(num < lowest) { lowest = num; }
